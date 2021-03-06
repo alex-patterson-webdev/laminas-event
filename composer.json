@@ -2,6 +2,7 @@
   "name": "alex-patterson-webdev/laminas-event",
   "minimum-stability": "dev",
   "prefer-stable": true,
+  "license": "MIT",
   "authors": [
     {
       "name": "Alex Patterson",
@@ -13,7 +14,7 @@
     "laminas/laminas-eventmanager" : "^3.3",
     "laminas/laminas-modulemanager" : "^2.10",
     "laminas/laminas-servicemanager" : "^3.0",
-    "alex-patterson-webdev/event-dispatcher": "dev-feature/1.1.0",
+    "alex-patterson-webdev/event-dispatcher": "dev-feature/2.0.0",
     "alex-patterson-webdev/laminas-factory": "dev-feature/3.0.0"
   },
   "require-dev": {

@@ -38,5 +38,6 @@ jobs:
       - name: Codecov
         uses: codecov/codecov-action@v1.3.1
         with:
-          directory: ./test/coverage/
-
+          files: ./test/coverage/clover.xml
+          fail_ci_if_error: true
+          verbose: true

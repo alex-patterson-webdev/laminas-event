@@ -35,6 +35,9 @@ jobs:
       - name: "Running unit tests"
         run: composer test:with-coverage
 
+      - name: "Running unit tests"
+        run: ls -la test/coverage
+
       - name: Codecov
         uses: codecov/codecov-action@v1.3.1
         with:

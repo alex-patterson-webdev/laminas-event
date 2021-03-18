@@ -36,11 +36,11 @@ jobs:
         run: composer test:with-coverage
 
       - name: "Display Coverage Report"
-        run: echo test/coverage/clover.xml
+        run: cat ./clover.xml
 
       - name: "Code Coverage Report Upload"
         uses: codecov/codecov-action@v1.3.1
         with:
-          files: ./test/coverage/clover.xml
+          files: ./clover.xml
           fail_ci_if_error: true
           verbose: true

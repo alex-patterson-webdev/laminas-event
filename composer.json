@@ -36,8 +36,19 @@
     }
   },
   "scripts": {
-    "test": "php vendor/bin/phpunit",
-    "test:with-coverage": [
+    "test": [
+      "@test:phpmd",
+      "@test:phpcs",
+      "@test:phpcs-fixer",
+      "@test:phpstan",
+      "@test:phpunit"
+    ],
+    "test:phpmd": "php vendor/bin/phpmd src/ text phpmd.xml",
+    "test:phpcs": "php vendor/bin/phpcs --standard=phpcs.xml --colors src/",
+    "test:phpcs-fixer": "php vendor/bin/php-cs-fixer fix src --diff-format=udiff --dry-run --show-progress=dots --using-cache=no --verbose",
+    "test:phpstan": "php vendor/bin/phpstan analyse src --level=5",
+    "test:phpstan-dev": "php vendor/bin/phpstan analyse src --level=8",
+    "test:phpunit": [
       "@putenv XDEBUG_MODE=coverage",
       "php vendor/bin/phpunit --coverage-clover=test/coverage/clover.xml"
     ]

@@ -11,8 +11,8 @@ on:
       - feature/*
 
 jobs:
-  build:
-    name: "Building CI container instance"
+  test:
+    name: "Integration Test Suite"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -33,21 +33,21 @@ jobs:
         run: composer install --prefer-dist --no-progress --no-suggest
 
       - name: "Run Mess Detector"
-        run: "php vendor/bin/phpmd src/ text phpmd.xml"
+        run: composer test:phpmd
 
-      - name: "Run Code Sniffer"
-        run: "php vendor/bin/phpcs --standard=phpcs.xml --colors src/"
+      - name: "Check coding standards"
+        run: composer test:phpcs
 
-      - name: "Run Code Sniffer Fixes"
-        run: "php vendor/bin/php-cs-fixer fix src --diff-format=udiff --dry-run --show-progress=dots --using-cache=no --verbose"
+      - name: "Checking for solutions to code formatting"
+        run: composer test:phpcs-fixer
 
-      - name: "Run Static Analysis Checks"
-        run: "php vendor/bin/phpstan analyse src --level=8"
+      - name: "Running static analysis checks"
+        run: composer test:phpstan
 
-      - name: "Running unit tests with coverage"
+      - name: "Running unit tests with code coverage"
         run: composer test:with-coverage
 
-      - name: "Code Coverage Report Upload"
+      - name: "Uploading code coverage report to Codecov"
         uses: codecov/codecov-action@v1.3.1
         with:
           files: ./test/coverage/clover.xml

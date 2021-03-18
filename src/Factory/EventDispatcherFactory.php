@@ -21,9 +21,9 @@ final class EventDispatcherFactory extends AbstractFactory
     /**
      * @noinspection PhpMissingParamTypeInspection
      *
-     * @param ContainerInterface $container
-     * @param string             $requestedName
-     * @param array|null         $options
+     * @param ContainerInterface         $container
+     * @param string                     $requestedName
+     * @param array<string, string>|null $options
      *
      * @return EventDispatcherInterface
      *

@@ -32,6 +32,18 @@ jobs:
       - name: "Install dependencies"
         run: composer install --prefer-dist --no-progress --no-suggest
 
+      - name: "Run Mess Detector"
+        run: "php vendor/bin/phpmd src/ text phpmd.xml"
+
+      - name: "Run Code Sniffer"
+        run: "php vendor/bin/phpcs --standard=phpcs.xml --colors src/"
+
+      - name: "Run Code Sniffer Fixes"
+        run: "php vendor/bin/php-cs-fixer fix src --diff-format=udiff --dry-run --show-progress=dots --using-cache=no --verbose"
+
+      - name: "Run Static Analysis Checks"
+        run: "php vendor/bin/phpstan analyse src --level=8"
+
       - name: "Running unit tests with coverage"
         run: composer test:with-coverage
 

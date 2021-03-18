@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace ArpTest\LaminasEvent\Factory;
 
-use Arp\Factory\FactoryInterface;
 use Arp\LaminasEvent\Factory\EventDispatcherFactory;
 use PHPUnit\Framework\Exception;
 use PHPUnit\Framework\ExpectationFailedException;
@@ -17,15 +16,15 @@ use PHPUnit\Framework\TestCase;
 final class EventDispatcherFactoryTest extends TestCase
 {
     /**
-     * Assert the factory implements FactoryInterface
+     * Assert the factory is callable
      *
      * @throws Exception
      * @throws ExpectationFailedException
      */
-    public function testImplementsFactoryInterface(): void
+    public function testIsCallable(): void
     {
         $factory = new EventDispatcherFactory();
 
-        $this->assertInstanceOf(FactoryInterface::class, $factory);
+        $this->assertIsCallable($factory);
     }
 }

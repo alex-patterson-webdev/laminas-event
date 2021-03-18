@@ -29,11 +29,12 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Arp\\LaminasEvent\\": "test/unit/"
+      "ArpTest\\LaminasEvent\\": "test/unit/"
     }
   },
   "scripts": {
-    "test": "php vendor/bin/phpunit"
+    "test": "php vendor/bin/phpunit",
+    "test:with-coverage": "php vendor/bin/phpunit --coverage-clover=test/coverage/clover.xml"
   },
   "config": {
     "optimize-autoloader": true,

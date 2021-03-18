@@ -29,16 +29,16 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-php-
 
-      - name: Install dependencies
+      - name: "Install dependencies"
         run: composer install --prefer-dist --no-progress --no-suggest
 
-      - name: "Running unit tests"
+      - name: "Running unit tests with coverage"
         run: composer test:with-coverage
 
-      - name: "Running unit tests"
-        run: ls -la test/coverage
+      - name: "Display Coverage Report"
+        run: echo test/coverage/clover.xml
 
-      - name: Codecov
+      - name: "Code Coverage Report Upload"
         uses: codecov/codecov-action@v1.3.1
         with:
           files: ./test/coverage/clover.xml

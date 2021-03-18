@@ -34,7 +34,10 @@
   },
   "scripts": {
     "test": "php vendor/bin/phpunit",
-    "test:with-coverage": "php vendor/bin/phpunit --coverage-clover=clover.xml"
+    "test:with-coverage": [
+      "@putenv XDEBUG_MODE=coverage",
+      "php vendor/bin/phpunit --coverage-clover=test/coverage/clover.xml"
+    ]
   },
   "config": {
     "optimize-autoloader": true,

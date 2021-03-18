@@ -35,12 +35,9 @@ jobs:
       - name: "Running unit tests with coverage"
         run: composer test:with-coverage
 
-      - name: "Display Coverage Report"
-        run: cat ./clover.xml
-
       - name: "Code Coverage Report Upload"
         uses: codecov/codecov-action@v1.3.1
         with:
-          files: ./clover.xml
+          files: ./test/coverage/clover.xml
           fail_ci_if_error: true
           verbose: true

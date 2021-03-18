@@ -33,7 +33,7 @@ jobs:
         run: composer install --prefer-dist --no-progress --no-suggest
 
       - name: "Running unit tests"
-        run: composer test:coverage
+        run: composer test:with-coverage
 
       - name: Codecov
         uses: codecov/codecov-action@v1.3.1

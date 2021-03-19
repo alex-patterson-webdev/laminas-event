@@ -32,20 +32,17 @@ jobs:
       - name: "Install dependencies"
         run: composer install --prefer-dist --no-progress --no-suggest
 
-      - name: "Run Mess Detector"
-        run: composer test:phpmd
-
       - name: "Check coding standards"
         run: composer test:phpcs
 
       - name: "Checking for solutions to code formatting"
-        run: composer test:phpcs-fixer
+        run: composer test:phpcs-check
 
       - name: "Running static analysis checks"
         run: composer test:phpstan
 
       - name: "Running unit tests with code coverage"
-        run: composer test:with-coverage
+        run: composer test:phpunit
 
       - name: "Uploading code coverage report to Codecov"
         uses: codecov/codecov-action@v1.3.1

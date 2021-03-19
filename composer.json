@@ -22,8 +22,7 @@
     "phpunit/phpunit": "^9.5",
     "squizlabs/php_codesniffer": "^3.5",
     "phpstan/phpstan": ">=0.12",
-    "friendsofphp/php-cs-fixer": "^2.18",
-    "phpmd/phpmd": "^2.9"
+    "friendsofphp/php-cs-fixer": "^2.18"
   },
   "autoload": {
     "psr-4": {
@@ -37,15 +36,14 @@
   },
   "scripts": {
     "test": [
-      "@test:phpmd",
       "@test:phpcs",
-      "@test:phpcs-fixer",
+      "@test:phpcs-fix",
       "@test:phpstan",
       "@test:phpunit"
     ],
-    "test:phpmd": "php vendor/bin/phpmd src/ text phpmd.xml",
     "test:phpcs": "php vendor/bin/phpcs --standard=phpcs.xml --colors src/",
-    "test:phpcs-fixer": "php vendor/bin/php-cs-fixer fix src --diff-format=udiff --dry-run --show-progress=dots --using-cache=no --verbose",
+    "test:phpcs-check": "php vendor/bin/php-cs-fixer fix src --diff-format=udiff --dry-run --show-progress=dots --using-cache=no --verbose",
+    "test:phpcs-fix": "php vendor/bin/php-cs-fixer fix src --diff-format=udiff --show-progress=dots --using-cache=no --verbose",
     "test:phpstan": "php vendor/bin/phpstan analyse src --level=5",
     "test:phpstan-dev": "php vendor/bin/phpstan analyse src --level=8",
     "test:phpunit": [

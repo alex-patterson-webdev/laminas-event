@@ -7,7 +7,7 @@ namespace Arp\LaminasEvent\Factory;
 use Arp\EventDispatcher\Factory\EventDispatcherFactory as ArpEventDispatcherFactory;
 use Arp\Factory\Exception\FactoryException;
 use Arp\LaminasFactory\AbstractFactory;
-use Interop\Container\ContainerInterface;
+use Psr\Container\ContainerInterface;
 use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
 use Laminas\ServiceManager\Exception\ServiceNotFoundException;
 use Psr\EventDispatcher\EventDispatcherInterface;

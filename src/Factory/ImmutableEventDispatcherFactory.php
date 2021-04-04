@@ -6,6 +6,7 @@ namespace Arp\LaminasEvent\Factory;
 
 use Arp\EventDispatcher\ImmutableEventDispatcher;
 use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
+use Laminas\ServiceManager\ServiceLocatorInterface;
 use Psr\Container\ContainerInterface;
 use Psr\EventDispatcher\ListenerProviderInterface;
 
@@ -16,9 +17,9 @@ use Psr\EventDispatcher\ListenerProviderInterface;
 final class ImmutableEventDispatcherFactory extends AbstractEventDispatcherFactory
 {
     /**
-     * @param ContainerInterface $container
-     * @param string             $requestedName
-     * @param array|null         $options
+     * @param ContainerInterface&ServiceLocatorInterface $container
+     * @param string                                     $requestedName
+     * @param array<mixed>|null                          $options
      *
      * @return ImmutableEventDispatcher
      *

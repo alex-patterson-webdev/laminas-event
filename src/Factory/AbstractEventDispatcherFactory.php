@@ -22,9 +22,9 @@ abstract class AbstractEventDispatcherFactory extends AbstractFactory
     /**
      * Attempt to resolve or build the AddableListenerProviderInterface
      *
-     * @param ContainerInterface&ServiceLocatorInterface $container
-     * @param ListenerProviderInterface|string|array     $listenerProviderConfig
-     * @param string                                     $serviceName
+     * @param ContainerInterface&ServiceLocatorInterface    $container
+     * @param ListenerProviderInterface|string|array<mixed> $listenerProviderConfig
+     * @param string                                        $serviceName
      *
      * @return ListenerProviderInterface
      *

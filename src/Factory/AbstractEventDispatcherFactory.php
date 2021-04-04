@@ -55,7 +55,9 @@ abstract class AbstractEventDispatcherFactory extends AbstractFactory
                 sprintf(
                     'The listener provider must be an object of type \'%s\'; \'%s\' provided for service \'%s\'',
                     ListenerProviderInterface::class,
-                    is_object($listenerProvider) ? get_class($listenerProvider) : gettype($listenerProvider),
+                    is_object($listenerProviderConfig)
+                        ? get_class($listenerProviderConfig)
+                        : gettype($listenerProviderConfig),
                     $serviceName
                 )
             );

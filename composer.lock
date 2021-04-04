@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/alex-patterson-webdev/event-dispatcher.git",
-                "reference": "e462bdb5ccf07bd9d6f45e86c4c858868fbe3b4c"
+                "reference": "0c6fc89852fbfc816f55182a71a71a3a28ad8fbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alex-patterson-webdev/event-dispatcher/zipball/e462bdb5ccf07bd9d6f45e86c4c858868fbe3b4c",
-                "reference": "e462bdb5ccf07bd9d6f45e86c4c858868fbe3b4c",
+                "url": "https://api.github.com/repos/alex-patterson-webdev/event-dispatcher/zipball/0c6fc89852fbfc816f55182a71a71a3a28ad8fbc",
+                "reference": "0c6fc89852fbfc816f55182a71a71a3a28ad8fbc",
                 "shasum": ""
             },
             "require": {
@@ -51,7 +51,7 @@
                 "issues": "https://github.com/alex-patterson-webdev/event-dispatcher/issues",
                 "source": "https://github.com/alex-patterson-webdev/event-dispatcher/tree/feature/2.0.0"
             },
-            "time": "2021-04-04T13:33:19+00:00"
+            "time": "2021-04-04T18:42:39+00:00"
         },
         {
             "name": "alex-patterson-webdev/laminas-factory",

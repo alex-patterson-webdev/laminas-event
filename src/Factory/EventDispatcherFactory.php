@@ -4,49 +4,55 @@ declare(strict_types=1);
 
 namespace Arp\LaminasEvent\Factory;
 
-use Arp\EventDispatcher\Factory\EventDispatcherFactory as ArpEventDispatcherFactory;
-use Arp\Factory\Exception\FactoryException;
-use Arp\LaminasFactory\AbstractFactory;
-use Interop\Container\ContainerInterface;
+use Arp\EventDispatcher\EventDispatcher;
+use Arp\EventDispatcher\Listener\AddableListenerProviderInterface;
 use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
 use Laminas\ServiceManager\Exception\ServiceNotFoundException;
+use Laminas\ServiceManager\ServiceLocatorInterface;
+use Psr\Container\ContainerInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
+use Psr\EventDispatcher\ListenerProviderInterface;
 
 /**
  * @author  Alex Patterson <alex.patterson.webdev@gmail.com>
  * @package Arp\LaminasEvent\Factory
  */
-final class EventDispatcherFactory extends AbstractFactory
+final class EventDispatcherFactory extends AbstractEventDispatcherFactory
 {
     /**
-     * @noinspection PhpMissingParamTypeInspection
-     *
-     * @param ContainerInterface         $container
-     * @param string                     $requestedName
-     * @param array<string, string>|null $options
+     * @param ContainerInterface&ServiceLocatorInterface $container
+     * @param string                                     $requestedName
+     * @param array<mixed>|null                          $options
      *
      * @return EventDispatcherInterface
-     *
-     * @throws FactoryException
      *
      * @throws ServiceNotCreatedException
      * @throws ServiceNotFoundException
      */
     public function __invoke(
         ContainerInterface $container,
-        $requestedName,
+        string $requestedName,
         array $options = null
     ): EventDispatcherInterface {
         $options = $options ?? $this->getServiceOptions($container, $requestedName, 'event_dispatchers');
 
-        if (isset($options['listener_provider']) && is_string($options['listener_provider'])) {
-            $options['listener_provider'] = $this->getService(
-                $container,
-                $options['listener_provider'],
-                $requestedName
+        $listenerProvider = $this->getListenerProvider(
+            $container,
+            $options['listener_provider'] ?? ListenerProviderInterface::class,
+            $requestedName
+        );
+
+        if (!$listenerProvider instanceof AddableListenerProviderInterface) {
+            throw new ServiceNotCreatedException(
+                sprintf(
+                    'The listener provider must be an object of type \'%s\'; \'%s\' provided for service \'%s\'',
+                    AddableListenerProviderInterface::class,
+                    get_class($listenerProvider),
+                    $requestedName
+                )
             );
         }
 
-        return (new ArpEventDispatcherFactory())->create($options);
+        return new EventDispatcher($listenerProvider);
     }
 }

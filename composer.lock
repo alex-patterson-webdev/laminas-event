@@ -59,12 +59,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/alex-patterson-webdev/laminas-factory.git",
-                "reference": "3b268f15baf977bc48195020ffa6e4ff0f673975"
+                "reference": "e991dd0112fce1385f1836ccac14fb14a77b5996"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alex-patterson-webdev/laminas-factory/zipball/3b268f15baf977bc48195020ffa6e4ff0f673975",
-                "reference": "3b268f15baf977bc48195020ffa6e4ff0f673975",
+                "url": "https://api.github.com/repos/alex-patterson-webdev/laminas-factory/zipball/e991dd0112fce1385f1836ccac14fb14a77b5996",
+                "reference": "e991dd0112fce1385f1836ccac14fb14a77b5996",
                 "shasum": ""
             },
             "require": {
@@ -98,7 +98,7 @@
                 "issues": "https://github.com/alex-patterson-webdev/laminas-factory/issues",
                 "source": "https://github.com/alex-patterson-webdev/laminas-factory/tree/feature/3.0.0"
             },
-            "time": "2021-03-29T19:41:04+00:00"
+            "time": "2021-04-04T20:59:15+00:00"
         },
         {
             "name": "brick/varexporter",

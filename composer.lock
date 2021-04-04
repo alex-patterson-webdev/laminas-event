@@ -12,20 +12,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/alex-patterson-webdev/event-dispatcher.git",
-                "reference": "98f6ff6a8150989f4d6cf6bfd5c855c559261e09"
+                "reference": "e462bdb5ccf07bd9d6f45e86c4c858868fbe3b4c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alex-patterson-webdev/event-dispatcher/zipball/98f6ff6a8150989f4d6cf6bfd5c855c559261e09",
-                "reference": "98f6ff6a8150989f4d6cf6bfd5c855c559261e09",
+                "url": "https://api.github.com/repos/alex-patterson-webdev/event-dispatcher/zipball/e462bdb5ccf07bd9d6f45e86c4c858868fbe3b4c",
+                "reference": "e462bdb5ccf07bd9d6f45e86c4c858868fbe3b4c",
                 "shasum": ""
             },
             "require": {
-                "alex-patterson-webdev/factory": "dev-feature/2.0.0",
                 "php": ">=7.4 || >=8.0",
                 "psr/event-dispatcher": "^1"
             },
             "require-dev": {
+                "friendsofphp/php-cs-fixer": "^2.18",
+                "phpstan/phpstan": ">=0.12",
                 "phpunit/phpunit": "^9.5",
                 "squizlabs/php_codesniffer": "^3.5"
             },
@@ -50,50 +51,7 @@
                 "issues": "https://github.com/alex-patterson-webdev/event-dispatcher/issues",
                 "source": "https://github.com/alex-patterson-webdev/event-dispatcher/tree/feature/2.0.0"
             },
-            "time": "2021-03-07T22:25:56+00:00"
-        },
-        {
-            "name": "alex-patterson-webdev/factory",
-            "version": "dev-feature/2.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/alex-patterson-webdev/factory.git",
-                "reference": "f4e81d8bc872362a3e0f02673363b43160401a3b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/alex-patterson-webdev/factory/zipball/f4e81d8bc872362a3e0f02673363b43160401a3b",
-                "reference": "f4e81d8bc872362a3e0f02673363b43160401a3b",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.4 || >=8.0"
-            },
-            "require-dev": {
-                "squizlabs/php_codesniffer": "^3.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Arp\\Factory\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Alex Patterson",
-                    "email": "alex.patterson.webdev@gmail.com"
-                }
-            ],
-            "description": "Generic interfaces and classes for creating other services",
-            "support": {
-                "issues": "https://github.com/alex-patterson-webdev/factory/issues",
-                "source": "https://github.com/alex-patterson-webdev/factory/tree/feature/2.0.0"
-            },
-            "time": "2021-03-04T22:03:49+00:00"
+            "time": "2021-04-04T13:33:19+00:00"
         },
         {
             "name": "alex-patterson-webdev/laminas-factory",

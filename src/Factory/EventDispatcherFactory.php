@@ -6,12 +6,12 @@ namespace Arp\LaminasEvent\Factory;
 
 use Arp\EventDispatcher\EventDispatcher;
 use Arp\EventDispatcher\Listener\AddableListenerProviderInterface;
+use Arp\LaminasEvent\Factory\Listener\ListenerRegistrationTrait;
 use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
 use Laminas\ServiceManager\Exception\ServiceNotFoundException;
 use Laminas\ServiceManager\ServiceLocatorInterface;
 use Psr\Container\ContainerInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
-use Psr\EventDispatcher\ListenerProviderInterface;
 
 /**
  * @author  Alex Patterson <alex.patterson.webdev@gmail.com>
@@ -19,6 +19,8 @@ use Psr\EventDispatcher\ListenerProviderInterface;
  */
 final class EventDispatcherFactory extends AbstractEventDispatcherFactory
 {
+    use ListenerRegistrationTrait;
+
     /**
      * @param ContainerInterface&ServiceLocatorInterface $container
      * @param string                                     $requestedName
@@ -38,7 +40,7 @@ final class EventDispatcherFactory extends AbstractEventDispatcherFactory
 
         $listenerProvider = $this->getListenerProvider(
             $container,
-            $options['listener_provider'] ?? ListenerProviderInterface::class,
+            $options['listener_provider'] ?? AddableListenerProviderInterface::class,
             $requestedName
         );
 
@@ -51,6 +53,10 @@ final class EventDispatcherFactory extends AbstractEventDispatcherFactory
                     $requestedName
                 )
             );
+        }
+
+        if (!empty($options['listeners']) && is_array($options['listeners'])) {
+            $this->registerEventListeners($container, $listenerProvider, $options['listeners'], $requestedName);
         }
 
         return new EventDispatcher($listenerProvider);

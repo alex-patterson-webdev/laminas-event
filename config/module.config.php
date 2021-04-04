@@ -6,6 +6,7 @@ namespace Arp\LaminasEvent;
 
 use Arp\EventDispatcher\EventDispatcher;
 use Arp\EventDispatcher\ImmutableEventDispatcher;
+use Arp\EventDispatcher\Listener\AddableListenerProviderInterface;
 use Arp\EventDispatcher\Listener\ListenerProvider;
 use Arp\EventDispatcher\Resolver\EventNameResolver;
 use Arp\EventDispatcher\Resolver\EventNameResolverInterface;
@@ -26,6 +27,7 @@ return [
         'aliases'   => [
             EventDispatcher::class   => EventDispatcherInterface::class,
             ListenerProvider::class  => ListenerProviderInterface::class,
+            AddableListenerProviderInterface::class => ListenerProviderInterface::class,
             EventNameResolver::class => EventNameResolverInterface::class,
         ],
         'factories' => [

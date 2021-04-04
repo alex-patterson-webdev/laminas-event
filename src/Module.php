@@ -11,7 +11,7 @@ namespace Arp\LaminasEvent;
 final class Module
 {
     /**
-     * @return array
+     * @return mixed[]
      */
     public function getConfig(): array
     {

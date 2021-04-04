@@ -35,7 +35,7 @@ abstract class AbstractEventDispatcherFactory extends AbstractFactory
         $listenerProviderConfig,
         string $serviceName
     ): ListenerProviderInterface {
-        $listenerProvider = null;
+        $listenerProvider = $listenerProviderConfig;
 
         if (is_string($listenerProviderConfig)) {
             $listenerProvider = $this->getService($container, $listenerProviderConfig, $serviceName);

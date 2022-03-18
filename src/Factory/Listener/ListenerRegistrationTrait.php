@@ -17,10 +17,10 @@ use Psr\Container\ContainerInterface;
 trait ListenerRegistrationTrait
 {
     /**
-     * @param ContainerInterface           $container
-     * @param AddListenerAwareInterface    $collection
-     * @param array<callable|string|array> $configs
-     * @param string                       $serviceName
+     * @param ContainerInterface        $container
+     * @param AddListenerAwareInterface $collection
+     * @param array<mixed>              $configs
+     * @param string                    $serviceName
      *
      * @throws ServiceNotCreatedException
      */

@@ -147,11 +147,12 @@ final class EventDispatcherFactoryTest extends TestCase
         $listenerProvider = $this->createMock(AddableListenerProviderInterface::class);
 
         if (is_string($listenerProviderConfig)) {
-            $this->container->expects($this->once())
-                ->method('has')
-                ->with($listenerProviderConfig)
-                ->willReturn(true);
-
+            if (!class_exists($listenerProviderConfig, true)) {
+                $this->container->expects($this->once())
+                    ->method('has')
+                    ->with($listenerProviderConfig)
+                    ->willReturn(true);
+            }
             $this->container->expects($this->once())
                 ->method('get')
                 ->with($listenerProviderConfig)

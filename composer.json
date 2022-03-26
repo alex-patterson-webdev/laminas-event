@@ -1,7 +1,9 @@
 {
   "name": "alex-patterson-webdev/laminas-event",
+  "description": "Event based components for use with the Laminas Framework",
   "minimum-stability": "dev",
   "prefer-stable": true,
+  "license": "MIT",
   "authors": [
     {
       "name": "Alex Patterson",
@@ -13,12 +15,15 @@
     "laminas/laminas-eventmanager" : "^3.3",
     "laminas/laminas-modulemanager" : "^2.10",
     "laminas/laminas-servicemanager" : "^3.0",
-    "alex-patterson-webdev/event-dispatcher": "dev-feature/1.1.0",
-    "alex-patterson-webdev/laminas-factory": "dev-feature/3.0.0"
+    "alex-patterson-webdev/event-dispatcher": "^2.0.0",
+    "alex-patterson-webdev/laminas-factory": "^3.0.0"
   },
   "require-dev": {
+    "phpspec/prophecy": "^1.15.0",
     "phpunit/phpunit": "^9.5",
-    "phpstan/phpstan": ">=0.12"
+    "squizlabs/php_codesniffer": "^3.6",
+    "phpstan/phpstan": "^1.4.8",
+    "friendsofphp/php-cs-fixer": "^3.6.0"
   },
   "autoload": {
     "psr-4": {
@@ -27,11 +32,32 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Arp\\LaminasEvent\\": "test/unit/"
+      "ArpTest\\LaminasEvent\\": "test/unit/"
     }
   },
   "scripts": {
-    "test": "php vendor/bin/phpunit"
+    "arp:test": [
+      "@arp:check",
+      "@arp:lint",
+      "@arp:analyse",
+      "@arp:unit-test-with-coverage"
+    ],
+    "arp:test-dev": [
+      "@arp:check",
+      "@arp:lint",
+      "@arp:fix",
+      "@arp:analyse",
+      "@arp:unit-test"
+    ],
+    "arp:check": "php vendor/bin/phpcs -s --standard=phpcs.xml --colors src/ test/",
+    "arp:lint": "php vendor/bin/php-cs-fixer fix --dry-run --verbose --config=.php-cs-fixer.dist",
+    "arp:fix": "php vendor/bin/php-cs-fixer fix --config=.php-cs-fixer.dist",
+    "arp:analyse": "php vendor/bin/phpstan analyse -c phpstan.neon --level=7",
+    "arp:unit-test": "php vendor/bin/phpunit",
+    "arp:unit-test-with-coverage": [
+      "@putenv XDEBUG_MODE=coverage",
+      "php vendor/bin/phpunit --coverage-clover=test/coverage/clover.xml"
+    ]
   },
   "config": {
     "optimize-autoloader": true,

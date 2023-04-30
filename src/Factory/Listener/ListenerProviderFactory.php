@@ -9,30 +9,21 @@ use Arp\EventDispatcher\Listener\ListenerProvider;
 use Arp\EventDispatcher\Resolver\EventNameResolverInterface;
 use Arp\LaminasFactory\AbstractFactory;
 use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
+use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\EventDispatcher\ListenerProviderInterface;
 
-/**
- * @author  Alex Patterson <alex.patterson.webdev@gmail.com>
- * @package Arp\LaminasEvent\Factory\Listener
- */
 class ListenerProviderFactory extends AbstractFactory
 {
     use ListenerRegistrationTrait;
 
-    /**
-     * @var string
-     */
     private string $defaultClassName = ListenerProvider::class;
 
     /**
-     * @param ContainerInterface $container
-     * @param string             $requestedName
-     * @param array<mixed>|null  $options
-     *
-     * @return ListenerProviderInterface
+     * @param array<mixed>|null $options
      *
      * @throws ServiceNotCreatedException
+     * @throws ContainerExceptionInterface
      */
     public function __invoke(
         ContainerInterface $container,
@@ -59,9 +50,6 @@ class ListenerProviderFactory extends AbstractFactory
         return $provider;
     }
 
-    /**
-     * @param string $defaultClassName
-     */
     public function setDefaultClassName(string $defaultClassName): void
     {
         $this->defaultClassName = $defaultClassName;

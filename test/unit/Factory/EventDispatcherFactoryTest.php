@@ -13,53 +13,40 @@ use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
 use Laminas\ServiceManager\ServiceLocatorInterface;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 use Psr\EventDispatcher\ListenerProviderInterface;
 
 /**
- * @covers  \Arp\LaminasEvent\Factory\EventDispatcherFactory
- * @covers  \Arp\LaminasEvent\Factory\AbstractEventDispatcherFactory
- *
- * @author  Alex Patterson <alex.patterson.webdev@gmail.com>
- * @package ArpTest\LaminasEvent\Factory
+ * @covers \Arp\LaminasEvent\Factory\EventDispatcherFactory
+ * @covers \Arp\LaminasEvent\Factory\AbstractEventDispatcherFactory
  */
 final class EventDispatcherFactoryTest extends TestCase
 {
-    /**
-     * @var ServiceLocatorInterface&MockObject
-     */
-    private $container;
+    private ServiceLocatorInterface&MockObject $container;
 
-    /**
-     * Prepare the test case dependencies
-     */
     public function setUp(): void
     {
         $this->container = $this->createMock(ServiceLocatorInterface::class);
     }
 
-    /**
-     * Assert the factory is callable
-     */
     public function testIsCallable(): void
     {
         $factory = new EventDispatcherFactory();
-
         $this->assertIsCallable($factory);
     }
 
-    /**
-     * Assert the class implement FactoryInterface
-     */
     public function testImplementsFactoryInterface(): void
     {
         $factory = new EventDispatcherFactory();
-
         $this->assertInstanceOf(FactoryInterface::class, $factory);
     }
 
     /**
      * @throws ServiceNotCreatedException
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     public function testInvalidListenerProviderWillThrowServiceNotCreatedException(): void
     {
@@ -84,9 +71,8 @@ final class EventDispatcherFactoryTest extends TestCase
     }
 
     /**
-     * Assert that if provided with a ListenerProvider configuration that does not implement
-     * AddableListenerProviderInterface a ServiceNotCreatedException will be thrown
-     *
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      * @throws ServiceNotCreatedException
      */
     public function testNonAddableListenerProviderWillThrowServiceNotCreatedException(): void
@@ -126,15 +112,15 @@ final class EventDispatcherFactoryTest extends TestCase
     }
 
     /**
-     * Assert that __invoke() will return a composed EventDispatcher instance
+     * @dataProvider getEventDispatcherFactoryWillReturnConfiguredEventDispatcherData
      *
      * @param mixed $listenerProviderConfig
      *
-     * @dataProvider getEventDispatcherFactoryWillReturnConfiguredEventDispatcherData
-     *
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      * @throws ServiceNotCreatedException
      */
-    public function testEventDispatcherFactoryWillReturnConfiguredEventDispatcher($listenerProviderConfig): void
+    public function testEventDispatcherFactoryWillReturnConfiguredEventDispatcher(mixed $listenerProviderConfig): void
     {
         $factory = new EventDispatcherFactory();
 
@@ -147,7 +133,7 @@ final class EventDispatcherFactoryTest extends TestCase
         $listenerProvider = $this->createMock(AddableListenerProviderInterface::class);
 
         if (is_string($listenerProviderConfig)) {
-            if (!class_exists($listenerProviderConfig, true)) {
+            if (!class_exists($listenerProviderConfig)) {
                 $this->container->expects($this->once())
                     ->method('has')
                     ->with($listenerProviderConfig)

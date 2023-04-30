@@ -4,14 +4,10 @@ declare(strict_types=1);
 
 namespace Arp\LaminasEvent;
 
-/**
- * @author  Alex Patterson <alex.patterson.webdev@gmail.com>
- * @package Arp\LaminasEvent
- */
 final class Module
 {
     /**
-     * @return mixed[]
+     * @return array<mixed>
      */
     public function getConfig(): array
     {

@@ -19,14 +19,14 @@ use Psr\EventDispatcher\ListenerProviderInterface;
 
 return [
     'service_manager' => [
-        'shared'    => [
-            EventDispatcherInterface::class  => false,
+        'shared' => [
+            EventDispatcherInterface::class => false,
             ListenerProviderInterface::class => false,
-            ImmutableEventDispatcher::class  => false,
+            ImmutableEventDispatcher::class => false,
         ],
-        'aliases'   => [
-            EventDispatcher::class   => EventDispatcherInterface::class,
-            ListenerProvider::class  => ListenerProviderInterface::class,
+        'aliases' => [
+            EventDispatcher::class => EventDispatcherInterface::class,
+            ListenerProvider::class => ListenerProviderInterface::class,
             AddableListenerProviderInterface::class => ListenerProviderInterface::class,
             EventNameResolver::class => EventNameResolverInterface::class,
         ],
@@ -34,7 +34,7 @@ return [
             EventDispatcherInterface::class => EventDispatcherFactory::class,
             ImmutableEventDispatcher::class => ImmutableEventDispatcherFactory::class,
 
-            ListenerProviderInterface::class  => ListenerProviderFactory::class,
+            ListenerProviderInterface::class => ListenerProviderFactory::class,
             EventNameResolverInterface::class => EventNameResolverFactory::class,
         ],
     ],

@@ -8,21 +8,18 @@ use Arp\EventDispatcher\Listener\AddListenerAwareInterface;
 use Arp\EventDispatcher\Listener\AggregateListenerInterface;
 use Arp\EventDispatcher\Listener\Exception\EventListenerException;
 use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
+use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
-/**
- * @author  Alex Patterson <alex.patterson.webdev@gmail.com>
- * @package Arp\LaminasEvent\Factory\Listener
- */
 trait ListenerRegistrationTrait
 {
     /**
-     * @param ContainerInterface        $container
-     * @param AddListenerAwareInterface $collection
-     * @param array<mixed>              $configs
-     * @param string                    $serviceName
+     * @param array<mixed> $configs
      *
      * @throws ServiceNotCreatedException
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     public function registerEventListeners(
         ContainerInterface $container,

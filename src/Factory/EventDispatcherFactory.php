@@ -8,28 +8,22 @@ use Arp\EventDispatcher\EventDispatcher;
 use Arp\EventDispatcher\Listener\AddableListenerProviderInterface;
 use Arp\LaminasEvent\Factory\Listener\ListenerRegistrationTrait;
 use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
-use Laminas\ServiceManager\Exception\ServiceNotFoundException;
 use Laminas\ServiceManager\ServiceLocatorInterface;
+use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 
-/**
- * @author  Alex Patterson <alex.patterson.webdev@gmail.com>
- * @package Arp\LaminasEvent\Factory
- */
 final class EventDispatcherFactory extends AbstractEventDispatcherFactory
 {
     use ListenerRegistrationTrait;
 
     /**
      * @param ContainerInterface&ServiceLocatorInterface $container
-     * @param string                                     $requestedName
-     * @param array<mixed>|null                          $options
-     *
-     * @return EventDispatcherInterface
      *
      * @throws ServiceNotCreatedException
-     * @throws ServiceNotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     public function __invoke(
         ContainerInterface $container,

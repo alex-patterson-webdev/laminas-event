@@ -8,13 +8,10 @@ use Arp\LaminasEvent\Factory\Listener\ListenerRegistrationTrait;
 use Arp\LaminasFactory\AbstractFactory;
 use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
 use Laminas\ServiceManager\ServiceLocatorInterface;
+use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\EventDispatcher\ListenerProviderInterface;
 
-/**
- * @author  Alex Patterson <alex.patterson.webdev@gmail.com>
- * @package Arp\LaminasEvent\Factory
- */
 abstract class AbstractEventDispatcherFactory extends AbstractFactory
 {
     use ListenerRegistrationTrait;
@@ -22,13 +19,14 @@ abstract class AbstractEventDispatcherFactory extends AbstractFactory
     /**
      * Attempt to resolve or build the AddableListenerProviderInterface
      *
-     * @param ContainerInterface&ServiceLocatorInterface    $container
+     * @param ContainerInterface&ServiceLocatorInterface $container
      * @param ListenerProviderInterface|string|array<mixed> $listenerProviderConfig
-     * @param string                                        $serviceName
+     * @param string $serviceName
      *
      * @return ListenerProviderInterface
      *
      * @throws ServiceNotCreatedException
+     * @throws ContainerExceptionInterface
      */
     protected function getListenerProvider(
         ContainerInterface $container,

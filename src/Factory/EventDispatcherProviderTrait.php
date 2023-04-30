@@ -5,25 +5,19 @@ declare(strict_types=1);
 namespace Arp\LaminasEvent\Factory;
 
 use Laminas\ServiceManager\Exception\ServiceNotCreatedException;
-use Laminas\ServiceManager\Exception\ServiceNotFoundException;
 use Laminas\ServiceManager\ServiceLocatorInterface;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 use Psr\EventDispatcher\EventDispatcherInterface;
 
-/**
- * @author  Alex Patterson <alex.patterson.webdev@gmail.com>
- * @package Arp\LaminasEvent\Factory
- */
 trait EventDispatcherProviderTrait
 {
     /**
-     * @param ServiceLocatorInterface                           $container
      * @param string|array<mixed>|EventDispatcherInterface|null $eventDispatcher
-     * @param string                                            $serviceName
-     *
-     * @return EventDispatcherInterface
      *
      * @throws ServiceNotCreatedException
-     * @throws ServiceNotFoundException
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     private function getEventDispatcher(
         ServiceLocatorInterface $container,

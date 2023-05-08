@@ -4,24 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "309ea0b39aa23cba73e1cdc0701a4054",
+    "content-hash": "ec5596c640df1a0099c00ca06934e3b5",
     "packages": [
         {
             "name": "alex-patterson-webdev/event-dispatcher",
-            "version": "2.0.0",
+            "version": "3.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/alex-patterson-webdev/event-dispatcher.git",
-                "reference": "a71bd7c10e7b9a7685ac31b94e15bb72765ea337"
+                "reference": "d6582d14bed53ef97cc17df1898d872da4615d77"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/alex-patterson-webdev/event-dispatcher/zipball/a71bd7c10e7b9a7685ac31b94e15bb72765ea337",
-                "reference": "a71bd7c10e7b9a7685ac31b94e15bb72765ea337",
+                "url": "https://api.github.com/repos/alex-patterson-webdev/event-dispatcher/zipball/d6582d14bed53ef97cc17df1898d872da4615d77",
+                "reference": "d6582d14bed53ef97cc17df1898d872da4615d77",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.4 || >=8.0",
+                "php": ">=8.1",
                 "psr/event-dispatcher": "^1"
             },
             "provide": {
@@ -29,8 +29,10 @@
             },
             "require-dev": {
                 "friendsofphp/php-cs-fixer": "^3.6.0",
+                "mockery/mockery": "^1.5",
                 "phpspec/prophecy": "^1.15.0",
                 "phpstan/phpstan": "^1.4.8",
+                "phpstan/phpstan-mockery": "^1.1",
                 "phpunit/phpunit": "^9.5",
                 "squizlabs/php_codesniffer": "^3.6"
             },
@@ -53,9 +55,9 @@
             "description": "Simple implementation of the PSR-14 event dispatcher",
             "support": {
                 "issues": "https://github.com/alex-patterson-webdev/event-dispatcher/issues",
-                "source": "https://github.com/alex-patterson-webdev/event-dispatcher/tree/2.0.0"
+                "source": "https://github.com/alex-patterson-webdev/event-dispatcher/tree/3.0.0"
             },
-            "time": "2022-03-18T19:51:04+00:00"
+            "time": "2023-05-08T00:21:56+00:00"
         },
         {
             "name": "alex-patterson-webdev/laminas-factory",
@@ -1837,16 +1839,16 @@
         },
         {
             "name": "phpstan/phpdoc-parser",
-            "version": "1.20.3",
+            "version": "1.20.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpdoc-parser.git",
-                "reference": "6c04009f6cae6eda2f040745b6b846080ef069c2"
+                "reference": "7d568c87a9df9c5f7e8b5f075fc469aa8cb0a4cd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/6c04009f6cae6eda2f040745b6b846080ef069c2",
-                "reference": "6c04009f6cae6eda2f040745b6b846080ef069c2",
+                "url": "https://api.github.com/repos/phpstan/phpdoc-parser/zipball/7d568c87a9df9c5f7e8b5f075fc469aa8cb0a4cd",
+                "reference": "7d568c87a9df9c5f7e8b5f075fc469aa8cb0a4cd",
                 "shasum": ""
             },
             "require": {
@@ -1876,9 +1878,9 @@
             "description": "PHPDoc parser with support for nullable, intersection and generic types",
             "support": {
                 "issues": "https://github.com/phpstan/phpdoc-parser/issues",
-                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.20.3"
+                "source": "https://github.com/phpstan/phpdoc-parser/tree/1.20.4"
             },
-            "time": "2023-04-25T09:01:03+00:00"
+            "time": "2023-05-02T09:19:37+00:00"
         },
         {
             "name": "phpstan/phpstan",
@@ -2812,16 +2814,16 @@
         },
         {
             "name": "sebastian/diff",
-            "version": "4.0.4",
+            "version": "4.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/diff.git",
-                "reference": "3461e3fccc7cfdfc2720be910d3bd73c69be590d"
+                "reference": "74be17022044ebaaecfdf0c5cd504fc9cd5a7131"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/3461e3fccc7cfdfc2720be910d3bd73c69be590d",
-                "reference": "3461e3fccc7cfdfc2720be910d3bd73c69be590d",
+                "url": "https://api.github.com/repos/sebastianbergmann/diff/zipball/74be17022044ebaaecfdf0c5cd504fc9cd5a7131",
+                "reference": "74be17022044ebaaecfdf0c5cd504fc9cd5a7131",
                 "shasum": ""
             },
             "require": {
@@ -2866,7 +2868,7 @@
             ],
             "support": {
                 "issues": "https://github.com/sebastianbergmann/diff/issues",
-                "source": "https://github.com/sebastianbergmann/diff/tree/4.0.4"
+                "source": "https://github.com/sebastianbergmann/diff/tree/4.0.5"
             },
             "funding": [
                 {
@@ -2874,7 +2876,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2020-10-26T13:10:38+00:00"
+            "time": "2023-05-07T05:35:17+00:00"
         },
         {
             "name": "sebastian/environment",

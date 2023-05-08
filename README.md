@@ -12,6 +12,6 @@ Event based components for use with the Laminas Framework
 
 Installation via [composer](https://getcomposer.org).
 
-    require alex-patterson-webdev/laminas-event ^0.2
+    require alex-patterson-webdev/laminas-event ^0.3
 
     
